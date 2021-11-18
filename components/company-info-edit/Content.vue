@@ -11,7 +11,7 @@
 
     <div class="info__buttons">
       <Button :buttonLabel="buttonLabel1" />
-      <Button style="margin-left: 2rem;" :buttonLabel="buttonLabel2" />
+      <Button style="margin-left: 2rem" :buttonLabel="buttonLabel2" />
     </div>
   </div>
 </template>
@@ -62,6 +62,7 @@ export default {
 
         .info__input {
           width: 26rem;
+          color: #888888;
         }
       }
     }

@@ -14,12 +14,16 @@
             v-if="!menu.subMenus"
             :key="menu.index"
           >
-            <a-icon type="bars" /> <span>{{ menu.name }}</span>
+            <div class="center">
+              <img class="icon" :src="menu.icon" alt="icon" />
+              <span>{{ menu.name }}</span>
+            </div>
           </a-menu-item>
 
           <a-sub-menu class="subMenu__item" v-else :key="menu.index">
-            <span slot="title">
-              <a-icon type="bars" /> <span>{{ menu.name }}</span></span
+            <span class="center" slot="title">
+              <img class="icon" :src="menu.icon" alt="icon" />
+              <span>{{ menu.name }}</span></span
             >
             <a-menu-item v-for="subMenu in menu.subMenus" :key="subMenu.index">
               {{ subMenu }}</a-menu-item
@@ -36,10 +40,18 @@ export default {
   data() {
     return {
       menus: [
-        { name: "アイテム一覧" },
-        { name: "ユーザー管理", subMenus: ["Option 5", "Option 6"] },
-        { name: "会社情報" },
-        { name: "ヘルプ", subMenus: ["Option 5", "Option 6"] },
+        { name: "アイテム一覧", icon: "logos/Vector4.svg" },
+        {
+          name: "ユーザー管理",
+          subMenus: ["Option 5", "Option 6"],
+          icon: "logos/Vector3.svg",
+        },
+        { name: "会社情報", icon: "logos/Vector2.svg" },
+        {
+          name: "ヘルプ",
+          subMenus: ["Option 5", "Option 6"],
+          icon: "logos/Vector1.svg",
+        },
       ],
     };
   },
@@ -49,7 +61,7 @@ export default {
 
 <style lang="scss" scoped>
 #sidebar {
-  .sidebar {
+  .sidebar::v-deep {
     width: 24.4rem;
     font-size: 1.4rem;
 
@@ -63,8 +75,9 @@ export default {
       color: #495570;
     }
 
-    .menu__item:hover {
+    .ant-menu-item:hover {
       @extend .gray-color;
+      background-color: white;
     }
 
     .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
@@ -83,7 +96,22 @@ export default {
 
       &-title:hover {
         @extend .gray-color;
+
+        .ant-menu-submenu-arrow::before,
+        .ant-menu-submenu-arrow::after {
+          background: #495570;
+        }
       }
+    }
+
+    .icon {
+      transform: scale(1.25);
+      margin-right: 1.7rem;
+    }
+
+    .center {
+      display: flex;
+      align-items: center;
     }
   }
 }
