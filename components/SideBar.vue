@@ -6,7 +6,6 @@
         :default-selected-keys="['1']"
         mode="inline"
         theme="light"
-        :inline-collapsed="collapsed"
       >
         <template v-for="menu in menus">
           <a-menu-item
