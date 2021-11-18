@@ -1,5 +1,5 @@
 <template>
-  <div id="content">
+  <div id="about-us">
     <a-page-header class="content__header" title="会社情報" />
 
     <table class="about__info">
@@ -9,9 +9,9 @@
       </tr>
     </table>
 
-    <NuxtLink to="/company-info-edit"
-      ><a-button class="info__button"> 編集 </a-button></NuxtLink
-    >
+    <div class="about__button">
+      <a href="/company-info-edit"><Button :buttonLabel="buttonLabel" /></a>
+    </div>
   </div>
 </template>
 
@@ -25,13 +25,15 @@ export default {
         { label: "住所", info: "東京都〜" },
         { label: "電話番号", info: "03-1234-5678" },
       ],
+
+      buttonLabel: "編集",
     };
   },
 };
 </script>
 
 <style lang="scss" scoped>
-#content {
+#about-us {
   width: 100%;
 
   .content__header {
@@ -63,17 +65,10 @@ export default {
     }
   }
 
-  .info__button {
-    background-color: #9b8c6f;
-    display: block;
-    margin: 4.8rem auto 0 auto;
-    width: 24rem;
-    height: 4.8rem;
-    color: white;
-
-    &:hover {
-      color: white;
-    }
+  .about__button {
+    display: flex;
+    justify-content: center;
+    margin-top: 4.8rem;
   }
 }
 </style>

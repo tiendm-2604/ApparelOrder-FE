@@ -26,10 +26,6 @@
             >
           </a-sub-menu>
         </template>
-
-        <a-button class="button__menu" @click="toggleCollapsed" block>
-          <a-icon :type="collapsed ? 'menu-unfold' : 'menu-fold'" />
-        </a-button>
       </a-menu>
     </div>
   </div>
@@ -39,8 +35,6 @@
 export default {
   data() {
     return {
-      collapsed: false,
-
       menus: [
         { name: "アイテム一覧" },
         { name: "ユーザー管理", subMenus: ["Option 5", "Option 6"] },
@@ -49,11 +43,7 @@ export default {
       ],
     };
   },
-  methods: {
-    toggleCollapsed() {
-      this.collapsed = !this.collapsed;
-    },
-  },
+  methods: {},
 };
 </script>
 
@@ -94,18 +84,6 @@ export default {
       &-title:hover {
         @extend .gray-color;
       }
-    }
-
-    .button__menu {
-      border: none;
-      border-radius: 0px;
-      background-color: #596789;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      position: absolute;
-      bottom: 0;
     }
   }
 }
